@@ -8,6 +8,23 @@
     "dark": "#2563eb"
   },
   "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/logo.svg",
+    "dark": "/logo.svg"
+  },
+  "api": {
+    "mdx": {
+      "server": "https://lumoris-api-production.up.railway.app"
+    }
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@example.com"
+      }
+    ]
+  },
   "navigation": {
     "groups": [
       {
@@ -18,342 +35,255 @@
         ]
       },
       {
-        "group": "APIs",
+        "group": "Image Generation",
         "pages": [
           {
-            "group": "Image generation API",
+            "group": "FLUX1.1 [pro] Ultra Raw",
             "pages": [
-              {
-                "group": "FLUX",
-                "pages": [
-                  {
-                    "group": "FLUX1.1 [pro] Ultra Raw",
-                    "pages": [
-                      "api-reference/image-generation/flux1-1-pro-ultra-raw/create",
-                      "api-reference/image-generation/flux1-1-pro-ultra-raw/get-job"
-                    ]
-                  },
-                  {
-                    "group": "FLUX1.1 [pro] Ultra",
-                    "pages": [
-                      "api-reference/image-generation/flux1-1-pro-ultra/create",
-                      "api-reference/image-generation/flux1-1-pro-ultra/get-job"
-                    ]
-                  },
-                  {
-                    "group": "FLUX.1 Kontext [pro]",
-                    "pages": [
-                      "api-reference/image-generation/flux1-kontext-pro/create",
-                      "api-reference/image-generation/flux1-kontext-pro/get-job"
-                    ]
-                  },
-                  {
-                    "group": "FLUX1.1 [pro]",
-                    "pages": [
-                      "api-reference/image-generation/flux1-1-pro/create",
-                      "api-reference/image-generation/flux1-1-pro/get-job"
-                    ]
-                  },
-                  {
-                    "group": "FLUX.2 [pro]",
-                    "pages": [
-                      "api-reference/image-generation/flux2-pro/create",
-                      "api-reference/image-generation/flux2-pro/get-job"
-                    ]
-                  },
-                  {
-                    "group": "FLUX.1 Kontext [max]",
-                    "pages": [
-                      "api-reference/image-generation/flux1-kontext-max/create",
-                      "api-reference/image-generation/flux1-kontext-max/get-job"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Google",
-                "pages": [
-                  {
-                    "group": "Nano Banana 2",
-                    "pages": [
-                      "api-reference/image-generation/nano-banana-2/create",
-                      "api-reference/image-generation/nano-banana-2/get-job"
-                    ]
-                  },
-                  {
-                    "group": "Nano Banana Pro",
-                    "pages": [
-                      "api-reference/image-generation/nano-banana-pro/create",
-                      "api-reference/image-generation/nano-banana-pro/get-job"
-                    ]
-                  },
-                  {
-                    "group": "Nano Banana",
-                    "pages": [
-                      "api-reference/image-generation/nano-banana/create",
-                      "api-reference/image-generation/nano-banana/get-job"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Open Ai",
-                "pages": [
-                  {
-                    "group": "GPT Image 1",
-                    "pages": [
-                      "api-reference/image-generation/gpt-image-1/create",
-                      "api-reference/image-generation/gpt-image-1/get-job"
-                    ]
-                  },
-                  {
-                    "group": "GPT Image 2",
-                    "pages": [
-                      "api-reference/image-generation/gpt-image-2/create",
-                      "api-reference/image-generation/gpt-image-2/get-job"
-                    ]
-                  },
-                  {
-                    "group": "GPT Image 1.5",
-                    "pages": [
-                      "api-reference/image-generation/gpt-image-1-5/create",
-                      "api-reference/image-generation/gpt-image-1-5/get-job"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "RunWay",
-                "pages": [
-                  {
-                    "group": "Runway Gen-4 Image",
-                    "pages": [
-                      "api-reference/image-generation/runway-gen4/create",
-                      "api-reference/image-generation/runway-gen4/get-job"
-                    ]
-                  }
-                ]
-              }
+              "api-reference/image-generation/flux1-1-pro-ultra-raw/create",
+              "api-reference/image-generation/flux1-1-pro-ultra-raw/get-job"
             ]
           },
           {
-            "group": "Image Editing API",
+            "group": "FLUX1.1 [pro] Ultra",
             "pages": [
-              {
-                "group": "FLUX",
-                "pages": [
-                  {
-                    "group": "FLUX1.1 [pro] Ultra Raw -edit",
-                    "pages": [
-                      "api-reference/image-editing/flux1-1-pro-ultra-raw-edit/create",
-                      "api-reference/image-editing/flux1-1-pro-ultra-raw-edit/get-job"
-                    ]
-                  },
-                  {
-                    "group": "FLUX1.1 [pro] Ultra -edit",
-                    "pages": [
-                      "api-reference/image-editing/flux1-1-pro-ultra-edit/create",
-                      "api-reference/image-editing/flux1-1-pro-ultra-edit/get-job"
-                    ]
-                  },
-                  {
-                    "group": "FLUX.1 Kontext [pro] -edit",
-                    "pages": [
-                      "api-reference/image-editing/flux1-kontext-pro-edit/create",
-                      "api-reference/image-editing/flux1-kontext-pro-edit/get-job"
-                    ]
-                  },
-                  {
-                    "group": "FLUX.2 [pro] -edit",
-                    "pages": [
-                      "api-reference/image-editing/flux2-pro-edit/create",
-                      "api-reference/image-editing/flux2-pro-edit/get-job"
-                    ]
-                  },
-                  {
-                    "group": "FLUX.1 Kontext [max] -edit",
-                    "pages": [
-                      "api-reference/image-editing/flux1-kontext-max-edit/create",
-                      "api-reference/image-editing/flux1-kontext-max-edit/get-job"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Google",
-                "pages": [
-                  {
-                    "group": "Nano Banana 2 -edit",
-                    "pages": [
-                      "api-reference/image-editing/nano-banana-2-edit/create",
-                      "api-reference/image-editing/nano-banana-2-edit/get-job"
-                    ]
-                  },
-                  {
-                    "group": "Nano Banana Pro -edit",
-                    "pages": [
-                      "api-reference/image-editing/nano-banana-pro-edit/create",
-                      "api-reference/image-editing/nano-banana-pro-edit/get-job"
-                    ]
-                  },
-                  {
-                    "group": "Nano Banana -edit",
-                    "pages": [
-                      "api-reference/image-editing/nano-banana-edit/create",
-                      "api-reference/image-editing/nano-banana-edit/get-job"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Open Ai",
-                "pages": [
-                  {
-                    "group": "GPT Image 1 -edit",
-                    "pages": [
-                      "api-reference/image-editing/gpt-image-1-edit/create",
-                      "api-reference/image-editing/gpt-image-1-edit/get-job"
-                    ]
-                  },
-                  {
-                    "group": "GPT Image 2 -edit",
-                    "pages": [
-                      "api-reference/image-editing/gpt-image-2-edit/create",
-                      "api-reference/image-editing/gpt-image-2-edit/get-job"
-                    ]
-                  },
-                  {
-                    "group": "GPT Image 1.5 -edit",
-                    "pages": [
-                      "api-reference/image-editing/gpt-image-1-5-edit/create",
-                      "api-reference/image-editing/gpt-image-1-5-edit/get-job"
-                    ]
-                  }
-                ]
-              }
+              "api-reference/image-generation/flux1-1-pro-ultra/create",
+              "api-reference/image-generation/flux1-1-pro-ultra/get-job"
             ]
           },
           {
-            "group": "Video generation API",
+            "group": "FLUX1.1 [pro]",
             "pages": [
-              {
-                "group": "Google",
-                "pages": [
-                  {
-                    "group": "Veo-3.1 Fast",
-                    "pages": [
-                      "api-reference/video-generation/veo-3-1-fast/create",
-                      "api-reference/video-generation/veo-3-1-fast/get-job"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Runway",
-                "pages": [
-                  {
-                    "group": "Runway Gen-4.5",
-                    "pages": [
-                      "api-reference/video-generation/runway-gen4-5-video/create",
-                      "api-reference/video-generation/runway-gen4-5-video/get-job"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Kling",
-                "pages": [
-                  {
-                    "group": "Kling 3.0",
-                    "pages": [
-                      "api-reference/video-generation/kling-3-0/create",
-                      "api-reference/video-generation/kling-3-0/get-job"
-                    ]
-                  },
-                  {
-                    "group": "Kling 3.0 Omni",
-                    "pages": [
-                      "api-reference/video-generation/kling-3-0-omni/create",
-                      "api-reference/video-generation/kling-3-0-omni/get-job"
-                    ]
-                  },
-                  {
-                    "group": "Kling 2.5 Turbo",
-                    "pages": [
-                      "api-reference/video-generation/kling-2-5-turbo/create",
-                      "api-reference/video-generation/kling-2-5-turbo/get-job"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Luma Labs",
-                "pages": [
-                  {
-                    "group": "Ray 3.14",
-                    "pages": [
-                      "api-reference/video-generation/ray-3-14/create",
-                      "api-reference/video-generation/ray-3-14/get-job"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Seedance",
-                "pages": [
-                  {
-                    "group": "Seedance 2.0",
-                    "pages": [
-                      "api-reference/video-generation/seedance-2-0/create",
-                      "api-reference/video-generation/seedance-2-0/get-job"
-                    ]
-                  },
-                  {
-                    "group": "Seedance 2.0 Fast",
-                    "pages": [
-                      "api-reference/video-generation/seedance-2-0-fast/create",
-                      "api-reference/video-generation/seedance-2-0-fast/get-job"
-                    ]
-                  }
-                ]
-              }
+              "api-reference/image-generation/flux1-1-pro/create",
+              "api-reference/image-generation/flux1-1-pro/get-job"
             ]
           },
           {
-            "group": "Speech generation API",
+            "group": "FLUX.2 [pro]",
             "pages": [
-              {
-                "group": "ElevenLabs",
-                "pages": [
-                  {
-                    "group": "ElevenLabs Multilingual v2",
-                    "pages": [
-                      "api-reference/speech-generation/elevenlabs-multilingual-v2/create",
-                      "api-reference/speech-generation/elevenlabs-multilingual-v2/get-job"
-                    ]
-                  }
-                ]
-              }
+              "api-reference/image-generation/flux2-pro/create",
+              "api-reference/image-generation/flux2-pro/get-job"
+            ]
+          },
+          {
+            "group": "FLUX.1 Kontext [pro]",
+            "pages": [
+              "api-reference/image-generation/flux1-kontext-pro/create",
+              "api-reference/image-generation/flux1-kontext-pro/get-job"
+            ]
+          },
+          {
+            "group": "FLUX.1 Kontext [max]",
+            "pages": [
+              "api-reference/image-generation/flux1-kontext-max/create",
+              "api-reference/image-generation/flux1-kontext-max/get-job"
+            ]
+          },
+          {
+            "group": "Nano Banana 2",
+            "pages": [
+              "api-reference/image-generation/nano-banana-2/create",
+              "api-reference/image-generation/nano-banana-2/get-job"
+            ]
+          },
+          {
+            "group": "Nano Banana Pro",
+            "pages": [
+              "api-reference/image-generation/nano-banana-pro/create",
+              "api-reference/image-generation/nano-banana-pro/get-job"
+            ]
+          },
+          {
+            "group": "Nano Banana",
+            "pages": [
+              "api-reference/image-generation/nano-banana/create",
+              "api-reference/image-generation/nano-banana/get-job"
+            ]
+          },
+          {
+            "group": "GPT Image 1",
+            "pages": [
+              "api-reference/image-generation/gpt-image-1/create",
+              "api-reference/image-generation/gpt-image-1/get-job"
+            ]
+          },
+          {
+            "group": "GPT Image 1.5",
+            "pages": [
+              "api-reference/image-generation/gpt-image-1-5/create",
+              "api-reference/image-generation/gpt-image-1-5/get-job"
+            ]
+          },
+          {
+            "group": "GPT Image 2",
+            "pages": [
+              "api-reference/image-generation/gpt-image-2/create",
+              "api-reference/image-generation/gpt-image-2/get-job"
+            ]
+          },
+          {
+            "group": "Runway Gen-4 Image",
+            "pages": [
+              "api-reference/image-generation/runway-gen4/create",
+              "api-reference/image-generation/runway-gen4/get-job"
             ]
           }
         ]
-      }
-    ]
-  },
-  "logo": {
-    "light": "/logo.svg",
-    "dark": "/logo.svg"
-  },
-  "api": {
-    "mdx": {
-      "server": "https://disbelief-recent-thaw.ngrok-free.dev"
-    }
-  },
-  "navbar": {
-    "links": [
+      },
       {
-        "label": "Support",
-        "href": "mailto:support@example.com"
+        "group": "Image Editing",
+        "pages": [
+          {
+            "group": "FLUX1.1 [pro] Ultra Raw Edit",
+            "pages": [
+              "api-reference/image-editing/flux1-1-pro-ultra-raw-edit/create",
+              "api-reference/image-editing/flux1-1-pro-ultra-raw-edit/get-job"
+            ]
+          },
+          {
+            "group": "FLUX1.1 [pro] Ultra Edit",
+            "pages": [
+              "api-reference/image-editing/flux1-1-pro-ultra-edit/create",
+              "api-reference/image-editing/flux1-1-pro-ultra-edit/get-job"
+            ]
+          },
+          {
+            "group": "FLUX.2 [pro] Edit",
+            "pages": [
+              "api-reference/image-editing/flux2-pro-edit/create",
+              "api-reference/image-editing/flux2-pro-edit/get-job"
+            ]
+          },
+          {
+            "group": "FLUX.1 Kontext [pro] Edit",
+            "pages": [
+              "api-reference/image-editing/flux1-kontext-pro-edit/create",
+              "api-reference/image-editing/flux1-kontext-pro-edit/get-job"
+            ]
+          },
+          {
+            "group": "FLUX.1 Kontext [max] Edit",
+            "pages": [
+              "api-reference/image-editing/flux1-kontext-max-edit/create",
+              "api-reference/image-editing/flux1-kontext-max-edit/get-job"
+            ]
+          },
+          {
+            "group": "Nano Banana 2 Edit",
+            "pages": [
+              "api-reference/image-editing/nano-banana-2-edit/create",
+              "api-reference/image-editing/nano-banana-2-edit/get-job"
+            ]
+          },
+          {
+            "group": "Nano Banana Pro Edit",
+            "pages": [
+              "api-reference/image-editing/nano-banana-pro-edit/create",
+              "api-reference/image-editing/nano-banana-pro-edit/get-job"
+            ]
+          },
+          {
+            "group": "Nano Banana Edit",
+            "pages": [
+              "api-reference/image-editing/nano-banana-edit/create",
+              "api-reference/image-editing/nano-banana-edit/get-job"
+            ]
+          },
+          {
+            "group": "GPT Image 1 Edit",
+            "pages": [
+              "api-reference/image-editing/gpt-image-1-edit/create",
+              "api-reference/image-editing/gpt-image-1-edit/get-job"
+            ]
+          },
+          {
+            "group": "GPT Image 1.5 Edit",
+            "pages": [
+              "api-reference/image-editing/gpt-image-1-5-edit/create",
+              "api-reference/image-editing/gpt-image-1-5-edit/get-job"
+            ]
+          },
+          {
+            "group": "GPT Image 2 Edit",
+            "pages": [
+              "api-reference/image-editing/gpt-image-2-edit/create",
+              "api-reference/image-editing/gpt-image-2-edit/get-job"
+            ]
+          }
+        ]
+      },
+      {
+        "group": "Video Generation",
+        "pages": [
+          {
+            "group": "Veo 3.1 Fast",
+            "pages": [
+              "api-reference/video-generation/veo-3-1-fast/create",
+              "api-reference/video-generation/veo-3-1-fast/get-job"
+            ]
+          },
+          {
+            "group": "Runway Gen-4.5",
+            "pages": [
+              "api-reference/video-generation/runway-gen4-5-video/create",
+              "api-reference/video-generation/runway-gen4-5-video/get-job"
+            ]
+          },
+          {
+            "group": "Kling 3.0",
+            "pages": [
+              "api-reference/video-generation/kling-3-0/create",
+              "api-reference/video-generation/kling-3-0/get-job"
+            ]
+          },
+          {
+            "group": "Kling 3.0 Omni",
+            "pages": [
+              "api-reference/video-generation/kling-3-0-omni/create",
+              "api-reference/video-generation/kling-3-0-omni/get-job"
+            ]
+          },
+          {
+            "group": "Kling 2.5 Turbo",
+            "pages": [
+              "api-reference/video-generation/kling-2-5-turbo/create",
+              "api-reference/video-generation/kling-2-5-turbo/get-job"
+            ]
+          },
+          {
+            "group": "Ray 3.14",
+            "pages": [
+              "api-reference/video-generation/ray-3-14/create",
+              "api-reference/video-generation/ray-3-14/get-job"
+            ]
+          },
+          {
+            "group": "Seedance 2.0",
+            "pages": [
+              "api-reference/video-generation/seedance-2-0/create",
+              "api-reference/video-generation/seedance-2-0/get-job"
+            ]
+          },
+          {
+            "group": "Seedance 2.0 Fast",
+            "pages": [
+              "api-reference/video-generation/seedance-2-0-fast/create",
+              "api-reference/video-generation/seedance-2-0-fast/get-job"
+            ]
+          }
+        ]
+      },
+      {
+        "group": "Speech Generation",
+        "pages": [
+          {
+            "group": "ElevenLabs Multilingual v2",
+            "pages": [
+              "api-reference/speech-generation/elevenlabs-multilingual-v2/create",
+              "api-reference/speech-generation/elevenlabs-multilingual-v2/get-job"
+            ]
+          }
+        ]
       }
     ]
   }
