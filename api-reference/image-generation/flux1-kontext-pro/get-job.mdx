@@ -1,0 +1,25 @@
+---
+title: 'Get task'
+api: 'GET /api/jobs/{jobId}'
+description: 'Poll the status of a FLUX.1 Kontext [pro] generation job.'
+---
+
+### Path Parameters
+
+<ParamField path="jobId" type="string" required>
+  The unique job ID.
+</ParamField>
+
+### Response
+
+<ResponseField name="jobId" type="string">
+  The unique identifier for the job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Current status (`queued`, `processing`, `completed`, `failed`).
+</ResponseField>
+
+<ResponseField name="imageUrl" type="string">
+  The CDN URL for the generated image. Only present when `status` is `completed`.
+</ResponseField>

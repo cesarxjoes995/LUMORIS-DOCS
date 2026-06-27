@@ -1,0 +1,37 @@
+---
+title: 'Create'
+api: 'POST /api/video-generation/kling-2-5-turbo'
+description: 'Fast, controllable advanced motion'
+---
+
+<Note>
+  **Kling 2.5 Turbo** — High-quality video generation model by Kling.
+</Note>
+
+### Body
+
+<ParamField body="prompt" type="string" required>
+  The text description of the video you want to generate.
+</ParamField>
+
+<ParamField body="aspectRatio" type="string" default="16:9">
+  The aspect ratio of the generated video.
+</ParamField>
+
+### Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the generation job. Use this to poll for results.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `queued` on creation.
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/video-generation/kling-2-5-turbo \
+  -H "Content-Type: application/json" \
+  -d '{"prompt": "A cinematic shot of a forest", "aspectRatio": "16:9"}'
+```
+</RequestExample>

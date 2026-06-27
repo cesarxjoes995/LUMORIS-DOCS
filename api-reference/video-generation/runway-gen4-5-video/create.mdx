@@ -1,0 +1,58 @@
+---
+title: 'Create'
+api: 'POST /api/video-generation/runway-gen4-5-video'
+description: 'Submit a video generation job using the Runway Gen-4.5 model.'
+---
+
+<Note>
+  **Runway Gen-4.5** — High-quality video generation model developed by Runway.
+</Note>
+
+### Body
+
+<ParamField body="prompt" type="string" required>
+  The text description of the video you want to generate.
+</ParamField>
+
+<ParamField body="negativePrompt" type="string">
+  Text description of what you do not want in the video.
+</ParamField>
+
+<ParamField body="aspectRatio" type="string" default="16:9">
+  The aspect ratio of the generated video.
+  <Note>This model currently locks the output to **16:9**.</Note>
+</ParamField>
+
+<ParamField body="resolution" type="string" default="720p">
+  The output resolution of the video.
+  <Note>This model currently locks the resolution to **720p**.</Note>
+</ParamField>
+
+<ParamField body="duration" type="integer" default="5">
+  The duration of the video in seconds. Supported values for this model:
+  - `5`
+  - `8`
+  - `10`
+</ParamField>
+
+### Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the generation job. Use this to poll for results.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `queued` on creation.
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/video-generation/runway-gen4-5-video \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "blonde russian cinematic shot on beach",
+    "negativePrompt": "cartoon, vector art, & bad aesthetics & poor aesthetic",
+    "duration": 5
+  }'
+```
+</RequestExample>

@@ -1,0 +1,54 @@
+---
+title: 'Create'
+api: 'POST /api/image-generation/nano-banana-pro'
+description: 'Submit an image generation job using the Nano Banana Pro model.'
+---
+
+<Note>
+  **Nano Banana Pro** — High-quality model developed by Google.
+</Note>
+
+### Body
+
+<ParamField body="prompt" type="string" required>
+  The text description of the image you want to generate.
+</ParamField>
+
+<ParamField body="aspectRatio" type="string" default="1:1">
+  The aspect ratio of the generated image. This determines the dimensions of the final output. Supported values include:
+  - `21:9` (Ultra Wide)
+  - `16:9` (Widescreen)
+  - `5:4` (Classic)
+  - `4:3` (Landscape)
+  - `3:2` (Wide)
+  - `1:1` (Square)
+  - `4:5` (Standard)
+  - `3:4` (Portrait)
+  - `2:3` (Tall)
+  - `9:16` (Vertical)
+</ParamField>
+
+<ParamField body="quality" type="string" default="1k">
+  The base grid quality. Options:
+  - `1k` (Base grid of 1024x1024)
+  - `2k` (Base grid of 2048x2048)
+  - `4k` (Base grid of 4096x4096)
+</ParamField>
+
+### Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the generation job. Use this to poll for results.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `queued` on creation.
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/image-generation/nano-banana-pro \
+  -H "Content-Type: application/json" \
+  -d '{"prompt": "A futuristic google datacenter", "aspectRatio": "16:9"}'
+```
+</RequestExample>

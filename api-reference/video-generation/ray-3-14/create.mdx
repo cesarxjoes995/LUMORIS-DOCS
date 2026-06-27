@@ -1,0 +1,65 @@
+---
+title: 'Create'
+api: 'POST /api/video-generation/ray-3-14'
+description: 'High-quality video generation model developed by Luma Labs.'
+---
+
+<Note>
+  **Ray 3.14** — High-quality video generation model by Luma Labs.
+</Note>
+
+### Body
+
+<ParamField body="prompt" type="string" required>
+  The text description of the video you want to generate.
+</ParamField>
+
+<ParamField body="negativePrompt" type="string">
+  Text description of what you do not want in the video.
+</ParamField>
+
+<ParamField body="aspectRatio" type="string" default="16:9">
+  The aspect ratio of the generated video. Supported values include:
+  - `21:9` (Ultra Wide)
+  - `16:9` (Widescreen)
+  - `4:3` (Landscape)
+  - `1:1` (Square)
+  - `3:4` (Portrait)
+  - `9:16` (Vertical)
+  - `9:21` (Ultra Tall)
+</ParamField>
+
+<ParamField body="resolution" type="string" default="720p">
+  The output resolution of the video. Supported values:
+  - `720p` (Fixed resolution for this model)
+</ParamField>
+
+<ParamField body="duration" type="integer" default="5">
+  The duration of the video in seconds. Supported values for this model:
+  - `5`
+  - `10`
+</ParamField>
+
+### Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the generation job. Use this to poll for results.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `queued` on creation.
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/video-generation/ray-3-14 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "blonde russian cinematic shot on beach with tsunami coming",
+    "negativePrompt": "cartoon, vector art, & bad aesthetics & poor aesthetic",
+    "aspectRatio": "16:9",
+    "resolution": "720p",
+    "duration": 5
+  }'
+```
+</RequestExample>

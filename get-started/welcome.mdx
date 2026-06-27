@@ -1,0 +1,33 @@
+---
+title: 'Welcome'
+description: 'Welcome to the Lumoris Labs API — a powerful wrapper around state-of-the-art AI generation models.'
+---
+
+# Welcome to Lumoris Labs API
+
+This API gives you programmatic access to powerful AI generation models.
+
+## What you can do
+
+<CardGroup cols={2}>
+  <Card title="Generate Images" icon="image" href="/api-reference/image-generation/runway-gen4">
+    Generate stunning AI images from text prompts using top-tier models.
+  </Card>
+  <Card title="Multiple Models" icon="grid-2" href="/api-reference/image-generation/runway-gen4">
+    Choose from a growing list of supported image generation models.
+  </Card>
+</CardGroup>
+
+## Base URL
+
+```
+https://disbelief-recent-thaw.ngrok-free.dev
+```
+
+## Quick Example
+
+```bash
+curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/generate \
+  -H "Content-Type: application/json" \
+  -d '{"prompt": "a futuristic city at night", "aspectRatio": "16:9"}'
+```

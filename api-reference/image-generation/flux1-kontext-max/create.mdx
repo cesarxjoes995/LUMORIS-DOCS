@@ -1,0 +1,37 @@
+---
+title: 'Create'
+api: 'POST /api/image-generation/flux1-kontext-max'
+description: 'Submit an image generation job using the FLUX.1 Kontext [max] model.'
+---
+
+<Note>
+  **FLUX.1 Kontext [max]** — State-of-the-art flagship model by Black Forest Labs.
+</Note>
+
+### Body
+
+<ParamField body="prompt" type="string" required>
+  The text description of the image you want to generate.
+</ParamField>
+
+<ParamField body="aspectRatio" type="string" default="1:1">
+  The aspect ratio of the generated image.
+</ParamField>
+
+### Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the generation job. Use this to poll for results.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `queued` on creation.
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/image-generation/flux1-kontext-max \
+  -H "Content-Type: application/json" \
+  -d '{"prompt": "A hyper-realistic photo", "aspectRatio": "16:9"}'
+```
+</RequestExample>

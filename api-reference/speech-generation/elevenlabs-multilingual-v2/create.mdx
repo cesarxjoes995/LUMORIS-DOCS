@@ -1,0 +1,37 @@
+---
+title: 'Create'
+api: 'POST /api/speech-generation/elevenlabs-multilingual-v2'
+description: 'Submit a speech generation job using the ElevenLabs Multilingual v2 model.'
+---
+
+<Note>
+  **ElevenLabs Multilingual v2** — High-quality text-to-speech model developed by ElevenLabs.
+</Note>
+
+### Body
+
+<ParamField body="text" type="string" required>
+  The text you want to convert to speech.
+</ParamField>
+
+<ParamField body="voiceId" type="string">
+  The ID of the voice to use for generation.
+</ParamField>
+
+### Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the generation job. Use this to poll for results.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `queued` on creation.
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/speech-generation/elevenlabs-multilingual-v2 \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Hello world, this is a test of speech generation.", "voiceId": "21m00Tcm4TlvDq8ikWAM"}'
+```
+</RequestExample>

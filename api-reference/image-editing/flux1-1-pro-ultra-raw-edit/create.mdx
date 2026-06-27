@@ -1,0 +1,38 @@
+---
+title: 'Create'
+api: 'POST /api/image-editing/flux1-1-pro-ultra-raw-edit'
+description: 'Submit an image editing job using the FLUX1.1 [pro] Ultra Raw -edit model.'
+---
+
+<Note>
+  **FLUX1.1 [pro] Ultra Raw -edit** — High-quality image editing model by FLUX.
+</Note>
+
+### Body
+
+<ParamField body="image" type="file" required>
+  The source image to edit.
+</ParamField>
+
+<ParamField body="prompt" type="string" required>
+  The text description of how to edit the image.
+</ParamField>
+
+### Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the generation job. Use this to poll for results.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `queued` on creation.
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/image-editing/flux1-1-pro-ultra-raw-edit \
+  -H "Content-Type: multipart/form-data" \
+  -F "image=@myimage.png" \
+  -F "prompt=make it cyber-punk style"
+```
+</RequestExample>

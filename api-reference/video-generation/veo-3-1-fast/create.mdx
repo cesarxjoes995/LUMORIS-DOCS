@@ -1,0 +1,62 @@
+---
+title: 'Create'
+api: 'POST /api/video-generation/veo-3-1-fast'
+description: 'Submit a video generation job using the Veo 3.1 Fast model.'
+---
+
+<Note>
+  **Veo 3.1 Fast** — High-speed video generation model by Adobe Firefly.
+</Note>
+
+### Body
+
+<ParamField body="prompt" type="string" required>
+  The text description of the video you want to generate.
+</ParamField>
+
+<ParamField body="negativePrompt" type="string">
+  Text description of what you do not want in the video (e.g. "cartoon, vector art").
+</ParamField>
+
+<ParamField body="aspectRatio" type="string" default="16:9">
+  The aspect ratio of the generated video. Supported values include:
+  - `16:9` (Widescreen)
+  - `9:16` (Vertical)
+</ParamField>
+
+<ParamField body="resolution" type="string" default="1080p">
+  The output resolution of the video. Supported values:
+  - `1080p`
+  - `720p`
+</ParamField>
+
+<ParamField body="duration" type="integer" default="4">
+  The duration of the video in seconds. Supported values:
+  - `4`
+  - `6`
+  - `8`
+</ParamField>
+
+### Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the generation job. Use this to poll for results.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `queued` on creation.
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/video-generation/veo-3-1-fast \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "blonde russian cinematic shot on beach with tsunami coming",
+    "negativePrompt": "cartoon, vector art",
+    "aspectRatio": "16:9",
+    "resolution": "1080p",
+    "duration": 4
+  }'
+```
+</RequestExample>

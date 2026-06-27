@@ -1,0 +1,115 @@
+---
+title: 'Create'
+api: 'POST /api/image-generation/runway-gen4'
+description: 'Submit an image generation job using Runway Gen 4. Returns a jobId immediately — no waiting.'
+---
+
+<Note>
+  **Runway Gen 4** — Released March 2025. Runway's flagship image generation model built for cinematic-grade output, world consistency, and photorealistic detail — trusted by Hollywood studios and independent creators alike.
+</Note>
+
+## About This Model
+
+Runway Gen 4 was engineered to solve the hardest problems in generative AI: **consistency, realism, and world coherence**. It delivers stunning, photorealistic image output at up to 1080p resolution with deep color fidelity and minimal artifacts.
+
+<CardGroup cols={2}>
+  <Card title="World Consistency" icon="globe">
+    Consistent characters, objects, and scenes with coherent lighting and spatial logic — no fine-tuning required.
+  </Card>
+  <Card title="Cinematic Quality" icon="film">
+    Natively outputs up to **1080p** with cinematic composition and deep color fidelity.
+  </Card>
+  <Card title="Reference-Based" icon="image">
+    Maintains visual identity of subjects — faces, clothing, textures — from a single prompt.
+  </Card>
+  <Card title="Versatile Ratios" icon="crop">
+    Supports widescreen, portrait, landscape, square, and vertical formats.
+  </Card>
+</CardGroup>
+
+> *"Gen 4 sets a new bar for what's possible with text-to-image generation — combining photorealism with coherent world understanding."* — Runway AI
+
+---
+
+### Body
+
+<ParamField body="prompt" type="string" required>
+  The text description of the image you want to generate. Be as detailed as possible for best results.
+</ParamField>
+
+<ParamField body="aspectRatio" type="string" default="1:1">
+  The aspect ratio of the generated image.
+
+  | Value  | Label      | Dimensions  |
+  |--------|------------|-------------|
+  | `16:9` | Widescreen | 1920 × 1080 |
+  | `4:3`  | Landscape  | 1152 × 864  |
+  | `1:1`  | Square     | 1080 × 1080 |
+  | `3:4`  | Portrait   | 864 × 1152  |
+  | `9:16` | Vertical   | 1080 × 1920 |
+</ParamField>
+
+### Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the generation job. Use this to poll for results.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `queued` on creation.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/image-generation/runway-gen4 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "A futuristic city bathed in neon lights at night",
+    "aspectRatio": "16:9"
+  }'
+```
+
+```javascript JavaScript
+const response = await fetch('https://disbelief-recent-thaw.ngrok-free.dev/api/image-generation/runway-gen4', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    prompt: 'A futuristic city bathed in neon lights at night',
+    aspectRatio: '16:9'
+  })
+});
+const { jobId } = await response.json();
+// Now poll /api/jobs/${jobId} every 2-3 seconds
+```
+
+```python Python
+import requests
+
+res = requests.post(
+  'https://disbelief-recent-thaw.ngrok-free.dev/api/image-generation/runway-gen4',
+  json={'prompt': 'A futuristic city at night', 'aspectRatio': '16:9'}
+)
+job = res.json()
+print(job['jobId'])   # use this to poll
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 202 Accepted
+{
+  "jobId": "c2ce03d4-bb66-4b55-bf24-8f7d046a2896",
+  "status": "queued",
+  "message": "Job submitted. Use the jobId to poll /api/jobs/:jobId for status."
+}
+```
+
+```json 400 Bad Request
+{
+  "error": "Prompt is required."
+}
+```
+
+</ResponseExample>
