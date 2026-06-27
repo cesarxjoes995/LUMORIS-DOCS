@@ -1,0 +1,9 @@
+{
+  "title": "API Reference",
+  "pages": [
+    "image-editing",
+    "image-generation",
+    "speech-generation",
+    "video-generation"
+  ]
+}

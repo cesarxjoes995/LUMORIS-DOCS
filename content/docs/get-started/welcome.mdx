@@ -1,0 +1,33 @@
+---
+title: 'Welcome'
+description: 'Welcome to the Lumoris Labs API — a powerful wrapper around state-of-the-art AI generation models.'
+---
+
+# Welcome to Lumoris Labs API
+
+This API gives you programmatic access to powerful AI generation models.
+
+## What you can do
+
+
+  
+    Generate stunning AI images from text prompts using top-tier models.
+  
+  
+    Choose from a growing list of supported image generation models.
+  
+
+
+## Base URL
+
+```
+https://lumoris-api-production.up.railway.app
+```
+
+## Quick Example
+
+```bash
+curl -X POST https://lumoris-api-production.up.railway.app/api/generate \
+  -H "Content-Type: application/json" \
+  -d '{"prompt": "a futuristic city at night", "aspectRatio": "16:9"}'
+```

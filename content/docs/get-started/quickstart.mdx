@@ -1,0 +1,53 @@
+---
+title: 'Quickstart'
+description: 'Get up and running with the Lumoris Labs API in minutes.'
+---
+
+# Quickstart
+
+Get your first image generated in under 2 minutes.
+
+## Step 1 — Start the server
+
+Make sure the API server is running locally:
+
+```bash
+node index.js
+```
+
+You should see:
+```bash
+Lumoris Labs API running on http://localhost:3000
+```
+
+## Step 2 — Send your first request
+
+```bash
+curl -X POST http://localhost:3000/api/generate \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "a red Ferrari on a mountain road at sunset",
+    "aspectRatio": "16:9"
+  }'
+```
+
+## Step 3 — Get your image URL
+
+```json
+{
+  "success": true,
+  "imageUrl": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/..."
+}
+```
+
+Open the `imageUrl` in your browser to view the generated image!
+
+## Supported Aspect Ratios
+
+| Value  | Label      | Dimensions     |
+|--------|------------|----------------|
+| `16:9` | Widescreen | 1920 × 1080    |
+| `4:3`  | Landscape  | 1152 × 864     |
+| `1:1`  | Square     | 1080 × 1080    |
+| `3:4`  | Portrait   | 864 × 1152     |
+| `9:16` | Vertical   | 1080 × 1920    |
