@@ -36,7 +36,7 @@ function processMdxFile(srcFile, destFile) {
   content = content.replace(/<\/Card>/g, '</a>');
 
   // URL replacement for ngrok to railway
-  content = content.replace(/https:\/\/disbelief-recent-thaw\.ngrok-free\.dev/g, 'https://lumoris-api-production.up.railway.app');
+  content = content.replace(/https:\/\/disbelief-recent-thaw\.ngrok-free\.dev/g, 'https://lumorislabs.online');
 
   // Ensure dest directory exists
   fs.mkdirSync(path.dirname(destFile), { recursive: true });

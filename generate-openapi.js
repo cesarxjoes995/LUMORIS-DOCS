@@ -13,7 +13,7 @@ const openapi = {
   },
   servers: [
     {
-      url: "https://lumoris-api-production.up.railway.app"
+      url: "https://lumorislabs.online"
     }
   ],
   paths: {}

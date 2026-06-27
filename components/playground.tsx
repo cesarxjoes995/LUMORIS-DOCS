@@ -130,7 +130,7 @@ export function Playground() {
         payload.duration = duration;
       }
 
-      const res = await fetch(`http://localhost:3000/api/${category}/${model}`, {
+      const res = await fetch(`https://lumorislabs.online/api/${category}/${model}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -161,7 +161,7 @@ export function Playground() {
         pollCount++;
         try {
           addLog(`Polling status... (${pollCount * 5}s elapsed)`);
-          const res = await fetch(`http://localhost:3000/api/jobs/${jobId}`);
+          const res = await fetch(`https://lumorislabs.online/api/jobs/${jobId}`);
           const data = await res.json();
           
           if (data.status === 'completed') {
@@ -415,7 +415,7 @@ export function Playground() {
                 </div>
                 <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-100 dark:bg-black overflow-hidden relative group">
                   <pre className="text-[11px] font-mono text-zinc-700 dark:text-zinc-300 overflow-x-auto whitespace-pre-wrap p-4 custom-scrollbar">
-{`curl -X POST http://localhost:3000/api/${category}/${model} \\
+{`curl -X POST https://lumorislabs.online/api/${category}/${model} \\
 -H "Content-Type: application/json" \\
 -d '{"prompt": "${prompt.replace(/'/g, "\\'")}", "aspectRatio": "${aspectRatio}"${category === 'video-generation' ? `, "duration": ${duration}` : ''}}'`}
                   </pre>
@@ -428,7 +428,7 @@ export function Playground() {
                 </div>
                 <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-100 dark:bg-black overflow-hidden relative group">
                   <pre className="text-[11px] font-mono text-zinc-700 dark:text-zinc-300 overflow-x-auto whitespace-pre-wrap p-4 custom-scrollbar">
-{`curl -X GET http://localhost:3000/api/jobs/${jobId || '<YOUR_JOB_ID>'}`}
+{`curl -X GET https://lumorislabs.online/api/jobs/${jobId || '<YOUR_JOB_ID>'}`}
                   </pre>
                 </div>
               </div>
