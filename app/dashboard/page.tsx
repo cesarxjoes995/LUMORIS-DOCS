@@ -42,7 +42,7 @@ export default async function DashboardPage() {
     const parts = log.endpoint.split('/');
     let modelName = log.endpoint;
     
-    if (log.endpoint.includes('/api/jobs/')) {
+    if (log.endpoint.includes('/jobs/')) {
       modelName = 'Job Polling';
     } else if (parts.length >= 4) {
       modelName = parts[parts.length - 1]; // Just take the last part
@@ -83,7 +83,7 @@ export default async function DashboardPage() {
   // Calculate Bar Data (Usage by Model)
   const barDataMap = new Map<string, number>();
   logs.forEach(log => {
-    if (log.endpoint.includes('/api/jobs/')) return; // Don't count polling as model usage
+    if (log.endpoint.includes('/jobs/')) return; // Don't count polling as model usage
     
     const parts = log.endpoint.split('/');
     let modelName = log.endpoint;

@@ -138,7 +138,7 @@ export function Playground() {
         payload.duration = duration;
       }
 
-      const res = await fetch(`${API_BASE_URL}/api/${category}/${model}`, {
+      const res = await fetch(`${API_BASE_URL}/${category}/${model}`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -172,7 +172,7 @@ export function Playground() {
         pollCount++;
         try {
           addLog(`Polling status... (${pollCount * 5}s elapsed)`);
-          const res = await fetch(`${API_BASE_URL}/api/jobs/${jobId}`, {
+          const res = await fetch(`${API_BASE_URL}/jobs/${jobId}`, {
             headers: {
               'Authorization': `Bearer ${apiKey.trim()}`
             }
@@ -441,7 +441,7 @@ export function Playground() {
                 </div>
                 <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-100 dark:bg-black overflow-hidden relative group">
                   <pre className="text-[11px] font-mono text-zinc-700 dark:text-zinc-300 overflow-x-auto whitespace-pre-wrap p-4 custom-scrollbar">
-{`curl -X POST https://lumorislabs.online/api/${category}/${model} \\
+{`curl -X POST https://api.lumorislabs.online/${category}/${model} \\
 -H "Content-Type: application/json" \\
 -H "Authorization: Bearer ${apiKey || '<YOUR_API_KEY>'}" \\
 -d '{"prompt": "${prompt.replace(/'/g, "\\'")}", "aspectRatio": "${aspectRatio}"${category === 'video-generation' ? `, "duration": ${duration}` : ''}}'`}
@@ -455,7 +455,7 @@ export function Playground() {
                 </div>
                 <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-100 dark:bg-black overflow-hidden relative group">
                   <pre className="text-[11px] font-mono text-zinc-700 dark:text-zinc-300 overflow-x-auto whitespace-pre-wrap p-4 custom-scrollbar">
-{`curl -X GET https://lumorislabs.online/api/jobs/${jobId || '<YOUR_JOB_ID>'} \\
+{`curl -X GET https://api.lumorislabs.online/jobs/${jobId || '<YOUR_JOB_ID>'} \\
 -H "Authorization: Bearer ${apiKey || '<YOUR_API_KEY>'}"`}
                   </pre>
                 </div>

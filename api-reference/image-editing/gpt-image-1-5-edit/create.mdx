@@ -1,6 +1,6 @@
 ---
 title: 'Create'
-api: 'POST /api/image-editing/gpt-image-1-5-edit'
+api: 'POST /image-editing/gpt-image-1-5-edit'
 description: 'Submit an image editing job using the GPT Image 1.5 -edit model.'
 ---
 
@@ -30,7 +30,7 @@ description: 'Submit an image editing job using the GPT Image 1.5 -edit model.'
 
 <RequestExample>
 ```bash cURL
-curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/image-editing/gpt-image-1-5-edit \
+curl -X POST https://api.lumorislabs.online/image-editing/gpt-image-1-5-edit \
   -H "Content-Type: multipart/form-data" \
   -F "image=@myimage.png" \
   -F "prompt=make it cyber-punk style"

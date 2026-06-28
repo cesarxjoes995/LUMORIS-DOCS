@@ -1,6 +1,6 @@
 ---
 title: 'Create'
-api: 'POST /api/image-editing/flux2-pro-edit'
+api: 'POST /image-editing/flux2-pro-edit'
 description: 'Submit an image editing job using the FLUX.2 [pro] -edit model.'
 ---
 
@@ -30,7 +30,7 @@ description: 'Submit an image editing job using the FLUX.2 [pro] -edit model.'
 
 <RequestExample>
 ```bash cURL
-curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/image-editing/flux2-pro-edit \
+curl -X POST https://api.lumorislabs.online/image-editing/flux2-pro-edit \
   -H "Content-Type: multipart/form-data" \
   -F "image=@myimage.png" \
   -F "prompt=make it cyber-punk style"

@@ -1,6 +1,6 @@
 ---
 title: 'Runway Gen 4 Image'
-api: 'POST /api/generate'
+api: 'POST /generate'
 description: 'Generate high-quality images from text prompts using the Runway Gen 4 model.'
 ---
 
@@ -63,7 +63,7 @@ Runway Gen 4 was engineered to solve the hardest problems in generative AI: **co
 <RequestExample>
 
 ```bash cURL
-curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/generate \
+curl -X POST https://api.lumorislabs.online/generate \
   -H "Content-Type: application/json" \
   -d '{
     "prompt": "A futuristic city bathed in neon lights at night",
@@ -72,7 +72,7 @@ curl -X POST https://disbelief-recent-thaw.ngrok-free.dev/api/generate \
 ```
 
 ```javascript JavaScript
-const response = await fetch('https://disbelief-recent-thaw.ngrok-free.dev/api/generate', {
+const response = await fetch('https://api.lumorislabs.online/generate', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -88,7 +88,7 @@ console.log(data.imageUrl);
 import requests
 
 response = requests.post(
-  'https://disbelief-recent-thaw.ngrok-free.dev/api/generate',
+  'https://api.lumorislabs.online/generate',
   json={
     'prompt': 'A futuristic city bathed in neon lights at night',
     'aspectRatio': '16:9'
