@@ -20,18 +20,29 @@ You should see:
 Lumoris Labs API running on https://lumorislabs.online
 ```
 
-## Step 2 — Send your first request
+## Step 2 — Authenticate
+
+To make API requests, you must authenticate using a Bearer token.
+You can generate a new API Key from your [Dashboard](/dashboard/keys).
+
+All API requests require the \`Authorization\` header:
+\`\`\`http
+Authorization: Bearer sk-live-lumoris-...
+\`\`\`
+
+## Step 3 — Send your first request
 
 ```bash
-curl -X POST https://lumorislabs.online/api/generate \
+curl -X POST https://lumorislabs.online/api/image-generation/flux1-1-pro \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <YOUR_API_KEY>" \
   -d '{
     "prompt": "a red Ferrari on a mountain road at sunset",
     "aspectRatio": "16:9"
   }'
 ```
 
-## Step 3 — Get your image URL
+## Step 4 — Get your image URL
 
 ```json
 {

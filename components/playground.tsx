@@ -13,6 +13,8 @@ const CATEGORIES = [
   { id: 'speech-generation', label: 'Speech Generation', icon: Mic },
 ];
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
 const MODELS = {
   'image-generation': [
     { id: 'flux1-1-pro-ultra-raw', name: 'FLUX1.1 [pro] Ultra Raw' },
@@ -74,6 +76,7 @@ export function Playground() {
   const [prompt, setPrompt] = useState('A beautiful futuristic city at sunset, neon lights, highly detailed, 4k');
   const [aspectRatio, setAspectRatio] = useState('16:9');
   const [duration, setDuration] = useState(5);
+  const [apiKey, setApiKey] = useState('');
   
   const [status, setStatus] = useState('idle'); // idle, generating, polling, success, error
   const [jobId, setJobId] = useState('');
@@ -109,6 +112,11 @@ export function Playground() {
   };
 
   const handleGenerate = async () => {
+    if (!apiKey.trim()) {
+      addLog('API Key is required', 'error');
+      setStatus('error');
+      return;
+    }
     if (!prompt.trim()) {
       addLog('Prompt is required', 'error');
       setStatus('error');
@@ -130,9 +138,12 @@ export function Playground() {
         payload.duration = duration;
       }
 
-      const res = await fetch(`https://lumorislabs.online/api/${category}/${model}`, {
+      const res = await fetch(`${API_BASE_URL}/api/${category}/${model}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey.trim()}`
+        },
         body: JSON.stringify(payload)
       });
       
@@ -161,7 +172,11 @@ export function Playground() {
         pollCount++;
         try {
           addLog(`Polling status... (${pollCount * 5}s elapsed)`);
-          const res = await fetch(`https://lumorislabs.online/api/jobs/${jobId}`);
+          const res = await fetch(`${API_BASE_URL}/api/jobs/${jobId}`, {
+            headers: {
+              'Authorization': `Bearer ${apiKey.trim()}`
+            }
+          });
           const data = await res.json();
           
           if (data.status === 'completed') {
@@ -228,6 +243,17 @@ export function Playground() {
         </div>
 
         {/* Dynamic Inputs */}
+        <div>
+          <label className="block text-sm font-medium text-zinc-500 dark:text-zinc-400 mb-2">API Key</label>
+          <input 
+            type="password"
+            value={apiKey}
+            onChange={(e) => setApiKey(e.target.value)}
+            className="w-full bg-white dark:bg-[#0a0a0a] border border-zinc-200 dark:border-zinc-800 rounded-lg px-3 py-2.5 text-sm text-zinc-900 dark:text-zinc-200 focus:outline-none focus:border-indigo-500 transition-colors"
+            placeholder="sk-live-lumoris-..."
+          />
+        </div>
+
         <div>
           <label className="block text-sm font-medium text-zinc-500 dark:text-zinc-400 mb-2">Prompt</label>
           <textarea 
@@ -417,6 +443,7 @@ export function Playground() {
                   <pre className="text-[11px] font-mono text-zinc-700 dark:text-zinc-300 overflow-x-auto whitespace-pre-wrap p-4 custom-scrollbar">
 {`curl -X POST https://lumorislabs.online/api/${category}/${model} \\
 -H "Content-Type: application/json" \\
+-H "Authorization: Bearer ${apiKey || '<YOUR_API_KEY>'}" \\
 -d '{"prompt": "${prompt.replace(/'/g, "\\'")}", "aspectRatio": "${aspectRatio}"${category === 'video-generation' ? `, "duration": ${duration}` : ''}}'`}
                   </pre>
                 </div>
@@ -428,7 +455,8 @@ export function Playground() {
                 </div>
                 <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-100 dark:bg-black overflow-hidden relative group">
                   <pre className="text-[11px] font-mono text-zinc-700 dark:text-zinc-300 overflow-x-auto whitespace-pre-wrap p-4 custom-scrollbar">
-{`curl -X GET https://lumorislabs.online/api/jobs/${jobId || '<YOUR_JOB_ID>'}`}
+{`curl -X GET https://lumorislabs.online/api/jobs/${jobId || '<YOUR_JOB_ID>'} \\
+-H "Authorization: Bearer ${apiKey || '<YOUR_API_KEY>'}"`}
                   </pre>
                 </div>
               </div>
