@@ -17,7 +17,7 @@ export async function loginUser(prevState: any, formData: FormData) {
     cookieStore.set('verifyEmail', email, { path: '/', maxAge: 60 * 15 }); // 15 mins
 
     // This will redirect to the verification page if successful
-    await signIn('resend', { email, redirectTo: '/dashboard' });
+    await signIn('resend', { email, redirectTo: '/' });
   } catch (error: any) {
     if (error instanceof AuthError) {
       console.error("Sign in error:", error);

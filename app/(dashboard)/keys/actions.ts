@@ -20,7 +20,7 @@ export async function createKey(formData: FormData) {
     }
   });
 
-  revalidatePath('/dashboard/keys');
+  revalidatePath('/keys');
 }
 
 export async function revokeKey(id: string) {
@@ -30,6 +30,6 @@ export async function revokeKey(id: string) {
   const key = await prisma.apiKey.findUnique({ where: { id } });
   if (key && (key.userId === user.id || user.role === 'ADMIN')) {
     await prisma.apiKey.delete({ where: { id } });
-    revalidatePath('/dashboard/keys');
+    revalidatePath('/keys');
   }
 }

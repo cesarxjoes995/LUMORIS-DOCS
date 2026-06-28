@@ -28,7 +28,7 @@ export function ClientSidebar({ userEmail, userRole }: { userEmail: string, user
   return (
     <aside className="w-[240px] border-r border-zinc-900 bg-black flex flex-col hidden md:flex shrink-0">
       <div className="h-14 flex items-center px-4 border-b border-zinc-900">
-        <Link href="/dashboard" className="flex items-center gap-2 text-white hover:opacity-80 transition-opacity">
+        <Link href="/" className="flex items-center gap-2 text-white hover:opacity-80 transition-opacity">
           <img src="/logo.png" alt="Lumoris Labs Logo" className="w-5 h-5 object-contain" style={{ filter: 'drop-shadow(0 0 3px rgba(192,38,211,0.6))' }} />
           <span className="font-semibold text-sm tracking-tight">Lumoris Labs</span>
         </Link>
@@ -36,19 +36,19 @@ export function ClientSidebar({ userEmail, userRole }: { userEmail: string, user
 
       <nav className="flex-1 px-3 py-4 space-y-6 overflow-y-auto">
         <div className="space-y-1">
-          <Link href="/dashboard" className={`flex items-center gap-2.5 px-2 py-1.5 rounded-md transition-colors ${isActive('/dashboard')}`}>
-            <Home className={`w-4 h-4 ${pathname === '/dashboard' ? 'text-zinc-100' : 'text-zinc-400'}`} />
+          <Link href="/" className={`flex items-center gap-2.5 px-2 py-1.5 rounded-md transition-colors ${isActive('/')}`}>
+            <Home className={`w-4 h-4 ${pathname === '/' ? 'text-zinc-100' : 'text-zinc-400'}`} />
             <span className="text-sm font-medium">Overview</span>
           </Link>
         </div>
 
         <div className="space-y-1">
           <div className="text-[11px] font-medium text-zinc-500 mb-2 px-2 mt-2">Developers</div>
-          <Link href="/dashboard/keys" className={`flex items-center gap-2.5 px-2 py-1.5 rounded-md transition-colors ${isActive('/dashboard/keys')}`}>
+          <Link href="/keys" className={`flex items-center gap-2.5 px-2 py-1.5 rounded-md transition-colors ${isActive('/keys')}`}>
             <Key className="w-4 h-4" />
             <span className="text-sm font-medium">API Keys</span>
           </Link>
-          <Link href="/dashboard/usage" className={`flex items-center gap-2.5 px-2 py-1.5 rounded-md transition-colors ${isActive('/dashboard/usage')}`}>
+          <Link href="/usage" className={`flex items-center gap-2.5 px-2 py-1.5 rounded-md transition-colors ${isActive('/usage')}`}>
             <BarChart2 className="w-4 h-4" />
             <span className="text-sm font-medium">Usage</span>
           </Link>
@@ -60,11 +60,11 @@ export function ClientSidebar({ userEmail, userRole }: { userEmail: string, user
 
         <div className="space-y-1">
           <div className="text-[11px] font-medium text-zinc-500 mb-2 px-2 mt-2">Billing & Plans</div>
-          <Link href="/dashboard/pricing" className={`flex items-center gap-2.5 px-2 py-1.5 rounded-md transition-colors ${isActive('/dashboard/pricing')}`}>
+          <Link href="/pricing" className={`flex items-center gap-2.5 px-2 py-1.5 rounded-md transition-colors ${isActive('/pricing')}`}>
             <CreditCard className="w-4 h-4" />
             <span className="text-sm font-medium">Pricing</span>
           </Link>
-          <Link href="/dashboard/billing" className={`flex items-center gap-2.5 px-2 py-1.5 rounded-md transition-colors ${isActive('/dashboard/billing')}`}>
+          <Link href="/billing" className={`flex items-center gap-2.5 px-2 py-1.5 rounded-md transition-colors ${isActive('/billing')}`}>
             <CreditCard className="w-4 h-4" />
             <span className="text-sm font-medium">Billing & Top-Up</span>
           </Link>
@@ -73,9 +73,9 @@ export function ClientSidebar({ userEmail, userRole }: { userEmail: string, user
         {userRole === 'ADMIN' && (
           <div className="space-y-1">
             <div className="text-[11px] font-medium text-amber-500/80 mb-2 px-2 mt-2">Admin Area</div>
-            <Link href="/dashboard/admin" className={`flex items-center gap-2.5 px-2 py-1.5 rounded-md transition-colors ${isActive('/dashboard/admin')}`}>
-              <ShieldAlert className={`w-4 h-4 ${pathname === '/dashboard/admin' ? 'text-amber-500' : 'text-amber-500/70'}`} />
-              <span className={`text-sm font-medium ${pathname === '/dashboard/admin' ? 'text-amber-500' : 'text-amber-500/70'}`}>Super Admin</span>
+            <Link href="/admin" className={`flex items-center gap-2.5 px-2 py-1.5 rounded-md transition-colors ${isActive('/admin')}`}>
+              <ShieldAlert className={`w-4 h-4 ${pathname === '/admin' ? 'text-amber-500' : 'text-amber-500/70'}`} />
+              <span className={`text-sm font-medium ${pathname === '/admin' ? 'text-amber-500' : 'text-amber-500/70'}`}>Super Admin</span>
             </Link>
           </div>
         )}

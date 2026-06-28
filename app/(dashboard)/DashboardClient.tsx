@@ -59,7 +59,7 @@ export default function DashboardClient({ areaData, barData, recentLogs, credits
             </h1>
             <p className="text-zinc-500 mt-1 text-sm">Manage your API keys, monitor usage, and view logs.</p>
           </div>
-          <Link href="/dashboard/keys" className="flex items-center justify-center gap-2 px-3 py-1.5 bg-white text-black text-xs font-semibold rounded-md transition-colors hover:bg-zinc-200">
+          <Link href="/keys" className="flex items-center justify-center gap-2 px-3 py-1.5 bg-white text-black text-xs font-semibold rounded-md transition-colors hover:bg-zinc-200">
             <Plus className="w-3.5 h-3.5" />
             Manage Keys
           </Link>
@@ -173,7 +173,7 @@ export default function DashboardClient({ areaData, barData, recentLogs, credits
               </>
             )}
             
-            <Link href="/dashboard/billing" className="block text-center w-full py-2 mt-6 bg-zinc-100 text-black font-medium rounded-md text-xs transition-colors hover:bg-white">
+            <Link href="/billing" className="block text-center w-full py-2 mt-6 bg-zinc-100 text-black font-medium rounded-md text-xs transition-colors hover:bg-white">
               Manage Billing
             </Link>
           </div>

@@ -19,6 +19,6 @@ export async function updateApiKeyRpm(keyId: string, rpm: number) {
     data: { rpm }
   });
 
-  revalidatePath('/dashboard/admin/users/[userId]', 'page');
+  revalidatePath('/admin/users/[userId]', 'page');
   return { success: true };
 }

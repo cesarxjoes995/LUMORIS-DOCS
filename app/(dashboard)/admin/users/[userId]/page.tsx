@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic';
 
 export default async function AdminUserPage({ params }: { params: { userId: string } }) {
   const sessionUser = await getSessionUser();
-  if (!sessionUser || sessionUser.role !== 'ADMIN') redirect('/dashboard');
+  if (!sessionUser || sessionUser.role !== 'ADMIN') redirect('/');
 
   const user = await prisma.user.findUnique({
     where: { id: params.userId },
@@ -25,7 +25,7 @@ export default async function AdminUserPage({ params }: { params: { userId: stri
     return (
       <div className="flex flex-col items-center justify-center py-20 text-zinc-500">
         <p>User not found</p>
-        <Link href="/dashboard/admin" className="text-zinc-300 mt-4 underline">Back to Directory</Link>
+        <Link href="/admin" className="text-zinc-300 mt-4 underline">Back to Directory</Link>
       </div>
     );
   }
@@ -41,7 +41,7 @@ export default async function AdminUserPage({ params }: { params: { userId: stri
       
       {/* Header */}
       <div className="flex flex-col gap-4 border-b border-zinc-900 pb-6">
-        <Link href="/dashboard/admin" className="flex items-center gap-1.5 text-xs text-zinc-500 hover:text-zinc-300 transition-colors w-fit">
+        <Link href="/admin" className="flex items-center gap-1.5 text-xs text-zinc-500 hover:text-zinc-300 transition-colors w-fit">
           <ArrowLeft className="w-3.5 h-3.5" />
           Back to Directory
         </Link>

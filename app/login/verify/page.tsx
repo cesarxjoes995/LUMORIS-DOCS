@@ -31,7 +31,7 @@ export default async function VerifyRequestPage() {
         </p>
 
         <form action="/api/auth/callback/resend" method="GET" className="space-y-5 text-left mb-8">
-          <input type="hidden" name="callbackUrl" value="/dashboard" />
+          <input type="hidden" name="callbackUrl" value="/" />
           <input type="hidden" name="email" value={verifyEmail} />
           
           <div>

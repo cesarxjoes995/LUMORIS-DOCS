@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 export default async function AdminPage() {
   const user = await getSessionUser();
   if (!user) redirect('/login');
-  if (user.role !== 'ADMIN') redirect('/dashboard');
+  if (user.role !== 'ADMIN') redirect('/');
 
   const users = await prisma.user.findMany({
     include: {
@@ -129,7 +129,7 @@ export default async function AdminPage() {
                         {u._count.apiKeys} configured
                       </td>
                       <td className="px-4 py-3 text-right">
-                        <Link href={`/dashboard/admin/users/${u.id}`} className="inline-flex items-center justify-center text-xs text-zinc-400 hover:text-zinc-100 transition-colors">
+                        <Link href={`/admin/users/${u.id}`} className="inline-flex items-center justify-center text-xs text-zinc-400 hover:text-zinc-100 transition-colors">
                           Edit <ChevronRight className="w-3 h-3 ml-1" />
                         </Link>
                       </td>
